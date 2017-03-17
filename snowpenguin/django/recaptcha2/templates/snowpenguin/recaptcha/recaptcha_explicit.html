@@ -1,7 +1,7 @@
-<div id="{{ container_id }}"></div>
+<div id="{{ container_id }}" class="{{ container_uid }}"></div>
 <script>
     django_recaptcha_callbacks.push(function() {
-        grecaptcha.render('{{ container_id }}', {
+        grecaptcha.render(document.getElementsByClassName('{{ uid }}')[0], {
         {% spaceless %}
             {% if theme %}'theme': '{{ theme }}',{% endif %}
             {% if type %}'type': '{{ type }}',{% endif %}

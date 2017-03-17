@@ -1,3 +1,4 @@
+import uuid
 from django.conf import settings
 from django.forms.widgets import Widget
 from django.template.loader import render_to_string
@@ -24,6 +25,7 @@ class ReCaptchaWidget(Widget):
         return mark_safe(
             render_to_string(template, {
                 'container_id': 'id_%s' % name,
+                'container_uid': 'captcha_{0}'.format(uuid.uuid4().hex),
                 'public_key': settings.RECAPTCHA_PUBLIC_KEY,
                 'theme': self.theme,
                 'type': self.type,
