@@ -1,5 +1,6 @@
 <div id="{{ container_id }}" class="g-recaptcha"></div>
 <script>
+    var django_recaptcha_callbacks = django_recaptcha_callbacks || [];
     django_recaptcha_callbacks.push(function() {
         grecaptcha.render('{{ container_id }}', {
         {% spaceless %}
