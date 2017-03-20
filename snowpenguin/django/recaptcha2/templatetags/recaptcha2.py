@@ -17,8 +17,3 @@ def recaptcha_init(language=None):
 @register.inclusion_tag('snowpenguin/recaptcha/recaptcha_init.html')
 def recaptcha_explicit_init(language=None):
     return {'explicit': True, 'language': language}
-
-
-@register.inclusion_tag('snowpenguin/recaptcha/recaptcha_explicit_support.html')
-def recaptcha_explicit_support():
-    return {}
