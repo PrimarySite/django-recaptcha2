@@ -3,7 +3,9 @@
 <script>
   (function() {
     window.addEventListener('load', function() {
-      const id = document.querySelectorAll('.g-recaptcha').map(function(el) {
+      const captchas = [].slice.call(document.querySelectorAll('.g-recaptcha'));
+
+      captchas.map(function(el) {
         const containerID = el.id;
         grecaptcha.render(containerID, {});
       });
