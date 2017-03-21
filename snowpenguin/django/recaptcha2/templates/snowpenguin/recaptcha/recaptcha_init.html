@@ -1,19 +1,19 @@
 <script src="https://www.google.com/recaptcha/api.js{% if explicit %}?render=explicit{% if language %}&hl={{ language }}{% endif %}{% elif language %}?hl={{ language }}{% endif %}" async defer></script>
 {% if explicit %}
 <script>
-  (function() {
     window.addEventListener('load', function() {
-      const captchas = [].slice.call(document.querySelectorAll('.g-recaptcha'));
+      var captchas = [].slice.call(document.querySelectorAll('.g-recaptcha'));
 
       captchas.map(function(el) {
-        const containerID = el.id;
-        grecaptcha.render(containerID, {'sitekey': '{{ public_key }}'});
-      });
+        var containerID = el.id;
+        var options = {'sitekey': el.dataset.sitekey};
 
-//    django_recaptcha_callbacks.forEach(function(callback) {
-//      callback();
-//    });
+        if  (el.dataset.theme) {
+          options.theme = el.dataset.theme;
+        }
+
+        grecaptcha.render(containerID, options);
+      });
     });
-  })();
 </script>
 {% endif %}
