@@ -7,7 +7,7 @@
 
       captchas.map(function(el) {
         const containerID = el.id;
-        grecaptcha.render(containerID, {});
+        grecaptcha.render(containerID, {'sitekey': '{{ public_key }}'});
       });
 
 //    django_recaptcha_callbacks.forEach(function(callback) {
