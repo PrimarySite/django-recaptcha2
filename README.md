@@ -51,12 +51,9 @@ You can pass some parameters into the widget contructor:
 
 ```python
 class ReCaptchaWidget(Widget):
-    def __init__(self, explicit=False, theme=None, type=None, size=None, tabindex=None, callback=None,
+    def __init__(self, theme=None, type=None, size=None, tabindex=None, callback=None,
                  expired_callback=None, attrs={}, *args, **kwargs):
 ```
-
-If you set the explicit boolean to true, you will render this field with explicit render support. This is usefull if you
-want to use multiple forms with reCaptcha in one page. Take a look to template and samples sections for more info.
 
 You can personalize reCaptcha theme, type, size, tabindex, callback and expired_callback parameters. Look the reCaptcha
 <a href="https://developers.google.com/recaptcha/docs/display#config">documentation</a> if you want to change those values.
@@ -177,15 +174,7 @@ You can use the app explicit render support also is you implement reCaptcha in o
 <html>
     <body>
         [...]
-        <div id='recaptcha'></div>
-        <script>
-            django_recaptcha_callbacks.push(function() {
-                grecaptcha.render('recaptcha', {
-                    'theme': 'dark',
-                    'sitekey': '{% recaptcha_key %}'
-                })
-            });
-        </script>
+        <div id='recaptcha' class='g-recaptcha' data-theme='dark' data-sitekey='{% recaptcha_key %}'></div>
         [...]
         {% recaptcha_explicit_init %}
     </body>
