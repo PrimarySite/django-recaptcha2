@@ -1,10 +1,17 @@
 <script src="https://www.google.com/recaptcha/api.js{% if explicit %}?render=explicit{% if language %}&hl={{ language }}{% endif %}{% elif language %}?hl={{ language }}{% endif %}" async defer></script>
 {% if explicit %}
 <script>
-  window.addEventListener("load", function() {
-    django_recaptcha_callbacks.forEach(function(callback) {
-      callback();
+  (function() {
+    window.addEventListener('load', function() {
+      const id = document.querySelectorAll('.g-recaptcha').map(function(el) {
+        const containerID = el.id;
+        grecaptcha.render(containerID, {});
+      });
+
+//    django_recaptcha_callbacks.forEach(function(callback) {
+//      callback();
+//    });
     });
-  });
+  })();
 </script>
 {% endif %}
