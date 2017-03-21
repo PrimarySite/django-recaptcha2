@@ -5,10 +5,9 @@ from django.utils.safestring import mark_safe
 
 
 class ReCaptchaWidget(Widget):
-    def __init__(self, explicit=False, theme=None, type=None, size=None, tabindex=None, callback=None,
+    def __init__(self, theme=None, type=None, size=None, tabindex=None, callback=None,
                  expired_callback=None, attrs={}, *args, **kwargs):
         super(ReCaptchaWidget, self).__init__(*args, **kwargs)
-        self.explicit = explicit
         self.theme = theme
         self.type = type
         self.size = size
@@ -18,8 +17,7 @@ class ReCaptchaWidget(Widget):
         self.attrs = attrs
 
     def render(self, name, value, attrs=None):
-        template = 'snowpenguin/recaptcha/'
-        template += 'recaptcha_explicit.html' if self.explicit else 'recaptcha_automatic.html'
+        template = 'snowpenguin/recaptcha/recaptcha.html'
 
         return mark_safe(
             render_to_string(template, {

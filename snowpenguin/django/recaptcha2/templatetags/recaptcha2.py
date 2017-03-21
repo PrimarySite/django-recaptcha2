@@ -16,4 +16,4 @@ def recaptcha_init(language=None):
 
 @register.inclusion_tag('snowpenguin/recaptcha/recaptcha_init.html')
 def recaptcha_explicit_init(language=None):
-    return {'explicit': True, 'language': language, 'public_key': settings.RECAPTCHA_PUBLIC_KEY}
+    return {'explicit': True, 'language': language}
