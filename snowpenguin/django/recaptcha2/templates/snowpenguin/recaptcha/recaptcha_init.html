@@ -6,26 +6,11 @@
 
       captchas.map(function(el) {
         var containerID = el.id;
-        var options = {'sitekey': el.dataset.sitekey};
+        var options = {};
+        Object.keys(el.dataset).forEach(function (key) {
+          options[key] = el.dataset[key];
+        });
 
-        if (el.dataset.theme) {
-          options.theme = el.dataset.theme;
-        }
-        if (el.dataset.type) {
-          options.type = el.dataset.type;
-        }
-        if (el.dataset.size) {
-          options.size = el.dataset.size;
-        }
-        if (el.dataset.tabindex) {
-          options.tabindex = el.dataset.tabindex;
-        }
-        if (el.dataset.callback) {
-          options.callback = el.dataset.callback;
-        }
-        if (el.dataset.expired_callback) {
-          options.expired_callback = el.dataset.expired_callback;
-        }
         grecaptcha.render(containerID, options);
       });
     });
