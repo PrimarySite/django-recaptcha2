@@ -55,14 +55,14 @@ class ReCaptchaWidget(Widget):
                  expired_callback=None, attrs={}, *args, **kwargs):
 ```
 
-You can personalize reCaptcha theme, type, size, tabindex, callback and expired_callback parameters. Look the reCaptcha
+You can personalize reCaptcha theme, type, size, tabindex, callback and expired_callback parameters. Look at the reCaptcha
 <a href="https://developers.google.com/recaptcha/docs/display#config">documentation</a> if you want to change those values.
 Warning: the app doesn't validate the incoming parameter values.
 
 ### Templating
 You can use some template tags to simplify the reCaptcha adoption:
  
-* recaptcha_init: add the script tag for reCaptcha api. You have to put this tag somewhere in your "head" element
+* recaptcha_init: add the script tag for the reCaptcha api. You have to put this tag somewhere in your "head" element
 * recaptcha_explicit_init: add the script tag for the reCaptcha api with explicit render support. You have to put this
   tag somewhere above the end of your "body" element. If you use this tag, you don't have to use "recaptcha_init".
 * recaptcha_key: if you want to use reCaptcha manually in your template, you will need the sitekey (a.k.a. public api key).
