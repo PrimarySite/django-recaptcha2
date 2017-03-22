@@ -5,13 +5,7 @@
       var captchas = [].slice.call(document.querySelectorAll('.g-recaptcha'));
 
       captchas.map(function(el) {
-        var containerID = el.id;
-        var options = {};
-        Object.keys(el.dataset).forEach(function (key) {
-          options[key] = el.dataset[key];
-        });
-
-        grecaptcha.render(containerID, options);
+        grecaptcha.render(el.id, el.dataset);
       });
     });
 </script>
