@@ -4,8 +4,9 @@
 window.addEventListener('load', function() {
   var captchas = [].slice.call(document.querySelectorAll('.g-recaptcha'));
 
-  captchas.map(function(el) {
-    grecaptcha.render(el.id, Object.assign({}, el.dataset));
+  captchas.forEach(function(el) {
+    var id = grecaptcha.render(el.id, Object.assign({}, el.dataset));
+    el.setAttribute('data-captchaId', id);
   });
 });
 </script>
