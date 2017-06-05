@@ -1,13 +1,13 @@
 <script src="https://www.google.com/recaptcha/api.js{% if explicit %}?render=explicit{% if language %}&hl={{ language }}{% endif %}{% elif language %}?hl={{ language }}{% endif %}" async defer></script>
-  {% if explicit %}
-<script>
-  window.addEventListener('load', function() {
-    var captchas = [].slice.call(document.querySelectorAll('.g-recaptcha'));
+{% if explicit %}
+  <script>
+    window.addEventListener('load', function() {
+      var captchas = [].slice.call(document.querySelectorAll('.g-recaptcha'));
 
-    captchas.forEach(function(el) {
-      var recaptchaId = grecaptcha.render(el.id, Object.assign({}, el.dataset));
-      el.setAttribute(el.dataset.captchaId = recaptchaId);
+      captchas.forEach(function(el) {
+        var recaptchaId = grecaptcha.render(el.id, Object.assign({}, el.dataset));
+        el.dataset.captchaId = recaptchaId;
+      });
     });
-  });
-</script>
+  </script>
 {% endif %}
