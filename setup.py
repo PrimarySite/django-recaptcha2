@@ -6,7 +6,7 @@ setup(
     namespace_packages = ['snowpenguin', 'snowpenguin.django'],
     # package_data={'': ['']},
     include_package_data=True,
-    version='1.0.0',
+    version='1.0.2',
     install_requires=[
         'Django>=1.7',
         'requests'
